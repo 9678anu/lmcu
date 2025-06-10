@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - LMCU Online Banking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .header-section {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .logo-container img {
+            width: 80px;
+        }
+        .content-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            text-align: center;
+        }
+        .logo-blue {
+            color: #003087;
+        }
+        .bg-logo-blue {
+            background-color: #003087;
+        }
+        .hover\:bg-logo-blue-dark:hover {
+            background-color: #002060;
+        }
+        footer {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-logo img {
+            width:100%; /* Fixed size for consistency */
+        }
+        body {
+            padding-bottom: 80px; /* Prevents content overlap with footer */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <div class="header-section">
+        <div class="logo-container">
+            <img src="https://sherunsgr.com/wp-content/uploads/2022/03/lmcu-logo.png" alt="LMCU Logo">
+        </div>
+    </div>
+    <div class="content-container">
+        <h1 class="text-2xl font-bold logo-blue mb-4">My LMCU Account</h1>
+        <p class="text-base text-gray-700 mb-4">
+            Welcome back, <span id="user-name">User</span>!
+        </p>
+        <div class="text-left max-w-md mx-auto mb-6">
+            <p class="text-gray-700"><strong>Account Holder:</strong> <span id="account-holder">N/A</span></p>
+            <p class="text-gray-700"><strong>Account Number:</strong> <span id="account-number">N/A</span></p>
+            <p class="text-gray-700"><strong>Username:</strong> <span id="username">N/A</span></p>
+            <p class="text-gray-700"><strong>Account Balance:</strong> $<span id="account-balance">0.00</span></p>
+        </div>
+        <a href="login.html" class="inline-block bg-logo-blue text-white font-semibold py-2 px-4 rounded hover:bg-logo-blue-dark transition">Log Out</a>
+    </div>
+    <footer>
+        <div class="footer-logo">
+            <img src="https://ik.imagekit.io/vj1zr14uts/image.png?updatedAt=1749583218686" alt="LMCU Footer Logo">
+        </div>
+    </footer>
+
+    <script>
+        // Redirect to login if no user data
+        const userData = JSON.parse(localStorage.getItem('userData')) || {};
+        if (!userData.username) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('user-name').textContent = userData.username || 'User';
+            document.getElementById('account-holder').textContent = `${userData.firstName || ''} ${userData.lastName || ''}`.trim() || 'N/A';
+            document.getElementById('account-number').textContent = userData.accountNumber || 'N/A';
+            document.getElementById('username').textContent = userData.username || 'N/A';
+            document.getElementById('account-balance').textContent = userData.balance || '0.00';
+        }
+    </script>
+</body>
+</html>

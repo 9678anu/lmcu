@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for creating your LMCU account">
+    <title>Thank You - LMCU Account Created</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Header section for logo */
+        .header-section {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .logo-container img {
+            width: 80px; /* Match signup page logo size */
+            height: auto;
+        }
+        /* Content container */
+        .content-container {
+            max-width: 700px;
+            width: 90%;
+            padding: 2rem;
+            margin: 120px auto 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        /* Custom navy blue for logo color */
+        .logo-blue {
+            color: #003087; /* Matches LMCU logo navy blue */
+        }
+        .bg-logo-blue {
+            background-color: #003087;
+        }
+        .hover\:bg-logo-blue-dark:hover {
+            background-color: #002060; /* Slightly darker for hover */
+        }
+        /* Footer styling */
+        .footer {
+            width: 100%;
+            position: relative;
+            margin-top: 2rem;
+        }
+        .footer img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <!-- Logo outside content -->
+    <header class="header-section">
+        <div class="logo-container">
+            <img src="https://sherunsgr.com/wp-content/uploads/2022/03/lmcu-logo.png" alt="LMCU Logo">
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="content-container">
+        <h1 class="text-2xl md:text-3xl font-bold logo-blue mb-6">Welcome to LMCU!</h1>
+        <p class="text-base text-gray-700 mb-8 leading-relaxed">
+            Congratulations on successfully creating your account!<br>
+            We're thrilled to welcome you to the LMCU community.<br>
+            Your journey with us has just begun, and we're excited!<br>
+            Thank you for choosing LMCU to be a part of your story.<br>
+            Explore, connect, and make the most of your new account.<br>
+            We look forward to seeing your contributions shine!<br>
+        </p>
+        <a href="index.html" class="inline-block bg-logo-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-logo-blue-dark transition duration-300">Go to Login</a>
+    </main>
+    <footer class="footer">
+        <img src="https://ik.imagekit.io/vj1zr14uts/image.png?updatedAt=1749583218686" alt="LMCU Footer Image">
+    </footer>
+</body>
+</html>
