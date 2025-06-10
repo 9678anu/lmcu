@@ -19,20 +19,16 @@
             background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
         }
 
-        header, footer {
+        header {
             width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header img, footer img {
-            width: 100%;
-            object-fit: contain;
+            width: 100%; /* Full width of container */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure image fits without cropping */
             display: block;
-        }
-
-        header, footer {
-            flex-shrink: 0;
         }
 
         .main-section {
@@ -58,14 +54,13 @@
 
         .form-container {
             position: absolute;
-            top: 60%;
-            right: 0%;
+            top: 50%;
+            left: 80%; /* Right-aligned for desktops/laptops */
             transform: translate(-50%, -50%);
             z-index: 3;
-            width: 320px;
-            height: auto;
+            width: 90%;
+            max-width: 320px;
             background: transparent;
-            background-size: cover;
             border-radius: 15px;
             padding: 10px;
         }
@@ -181,18 +176,25 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        @media (max-width: 768px) {
+        /* Media Queries for Responsiveness */
+        @media (min-width: 769px) {
             .form-container {
-                width: 90%;
-                max-width: 320px;
-            }
-
-            .main-section {
-                min-height: 400px;
+                left: 80%; /* Right-aligned for laptops/desktops */
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .form-container {
+                left: 50%; /* Center on tablets */
+                width: 85%;
+                max-width: 320px;
+                padding: 8px;
+            }
+
+            .main-section {
+                min-height: 350px;
+            }
+
             .login-form {
                 padding: 15px;
             }
@@ -204,8 +206,35 @@
                 font-size: 14px;
             }
 
+            .login-form .links {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                left: 50%; /* Center on mobiles */
+                width: 90%;
+                padding: 6px;
+            }
+
             .main-section {
-                min-height: 350px;
+                min-height: 300px;
+            }
+
+            .login-form {
+                padding: 12px;
+            }
+
+            .login-form select,
+            .login-form input,
+            .login-form button {
+                padding: 8px;
+                font-size: 13px;
+            }
+
+            .login-form .links {
+                font-size: 12px;
             }
         }
     </style>
@@ -230,7 +259,7 @@
                 </div>
                 <button onclick="handleLogin()">Log In</button>
                 <div class="links">
-                    <a href="forgot-password.html">Forgot your password or need to unlock your account?</a>
+                    <a href="#">Forgot your password or need to unlock your account?</a>
                     <div class="signup-link">
                         <a href="signup.html">Sign Up</a>
                     </div>
@@ -261,7 +290,6 @@
             const password = document.getElementById('password').value;
 
             if (username && password) {
-                // Simulate a direct login by redirecting to a dashboard page
                 window.location.href = 'account.html';
             } else {
                 alert('Please enter both username and password.');
